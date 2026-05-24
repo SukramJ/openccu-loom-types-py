@@ -10,6 +10,7 @@ from __future__ import annotations
 
 import argparse
 import json
+import keyword
 import sys
 from pathlib import Path
 
@@ -54,6 +55,11 @@ def to_class(name: str, values: list[dict]) -> str:
         # Members starting with a digit get an underscore prefix.
         if member and member[0].isdigit():
             member = "_" + member
+        # Reserved words (None, True, False, class, def, …) get a
+        # trailing underscore — PEP 8 convention for unavoidable
+        # collisions with Python's grammar.
+        if keyword.iskeyword(member):
+            member = member + "_"
         if member in seen:
             # Pick a deterministic alternative — append the wire
             # value as a disambiguator. This is rare (Go side

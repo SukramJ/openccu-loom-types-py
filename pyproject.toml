@@ -4,7 +4,7 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "openccu-loom-types"
-version = "0.1.0"
+version = "0.1.1"
 description = "Generated Pydantic / enum types for the openccu-loom REST + WebSocket contract"
 readme = "README.md"
 license = { text = "MIT" }

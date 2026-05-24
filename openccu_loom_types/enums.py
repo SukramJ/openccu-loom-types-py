@@ -221,7 +221,7 @@ class FailureReason(str, Enum):
     Exhausted = "exhausted"
     Internal = "internal"
     Network = "network"
-    None = "none"
+    None_ = "none"
     Timeout = "timeout"
     Unknown = "unknown"
 
@@ -634,7 +634,7 @@ class Quantity(str, Enum):
     Illuminance = "illuminance"
     Moisture = "moisture"
     Motion = "motion"
-    None = ""
+    None_ = ""
     Occupancy = "occupancy"
     Opening = "opening"
     Outlet = "outlet"
@@ -667,7 +667,7 @@ class Quantity(str, Enum):
 
 class RPCServerType(str, Enum):
     BINRPC = "bin_rpc"
-    None = "none"
+    None_ = "none"
     XMLRPC = "xml_rpc"
 
 class RPCType(str, Enum):
@@ -761,7 +761,7 @@ class ValueBehavior(str, Enum):
     Cumulative = "cumulative"
     Instantaneous = "instantaneous"
     Monotonic = "monotonic"
-    None = ""
+    None_ = ""
 
 class ValueSource(str, Enum):
     Cache = "cache"
