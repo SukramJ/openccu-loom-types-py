@@ -27,10 +27,11 @@ generate-rest: ## regenerate openccu_loom_types/rest.py via datamodel-codegen
 		--field-constraints \
 		--formatters ruff-format ruff-check
 
-generate-ws: ## regenerate openccu_loom_types/ws.py (envelope + push payloads)
-	@echo "WS payloads share components.schemas with REST — see rest.py for now."
-	@echo "A dedicated ws.py with just the push-payload subset is planned"
-	@echo "once the schema-grouping in openapi.yaml stabilises."
+generate-ws: ## regenerate openccu_loom_types/ws.py (envelope + push-payload re-exports from rest.py)
+	python3 scripts/gen_ws.py \
+		--wsapi-json $(OPENCCU_LOOM_REPO)/assets/wsapi.json \
+		--rest-py $(PKG)/rest.py \
+		--out-py $(PKG)/ws.py
 
 clean: ## remove generated modules
 	rm -f $(PKG)/enums.py $(PKG)/rest.py $(PKG)/ws.py
